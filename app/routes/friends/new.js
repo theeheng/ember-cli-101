@@ -5,6 +5,13 @@ export default Ember.Route.extend({
 		return this.store.createRecord('friend');
 
 	},
+	activate: function() {
+	console.log('----- activate hook called -----');
+	},
+	deactivate: function() {
+	    console.log('----- deactivate hook called -----');
+	  },
+  // actions omitted for clarity
 
 	actions: {
 		save: function() {
