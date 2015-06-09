@@ -46,3 +46,20 @@ currentRouteName(),
 );
 });
 });
+
+test('Clicking save without filling fields', function(assert) {
+visit('/friends/new');
+click('input[value="Save"]');
+andThen(function() {
+assert.equal(
+currentRouteName(),
+'friends.new',
+'Stays on new page'
+);
+assert.equal(
+find("h2:contains(You have to fill all the fields)").length,
+1,
+"Displays error message"
+);
+});
+});
